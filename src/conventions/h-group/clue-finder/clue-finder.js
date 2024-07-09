@@ -194,7 +194,7 @@ export function find_clues(game, giver = game.state.ourPlayerIndex, early_exits 
 					}
 				}
 
-				if (game.level < LEVEL.CONTEXT || clue.result.avoidable_dupe == 0)
+				if (clue.result.avoidable_dupe == 0)
 					saves.push(Object.assign(clue, { game: hypo_game, playable: playables.length > 0, cm: chop_moved, safe }));
 				else
 					logger.highlight('yellow', `${logClue(clue)} save results in avoidable potential duplication`);
@@ -220,7 +220,7 @@ export function find_clues(game, giver = game.state.ourPlayerIndex, early_exits 
 					if (clue.result.playables.length === 0)
 						continue;
 
-					if (game.level < LEVEL.CONTEXT || clue.result.avoidable_dupe == 0)
+					if (clue.result.avoidable_dupe == 0)
 						play_clues[target].push(clue);
 					else
 						logger.highlight('yellow', `${logClue(clue)} results in avoidable potential duplication`);
