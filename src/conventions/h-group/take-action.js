@@ -295,7 +295,7 @@ export function take_action(game) {
 					if (finesse_order !== determine_focus(state.hands[clue.target], common, list, {beforeClue: true}).focused_card.order)
 						return true;
 
-					const save_for = find_clue_givers(game, clue, state.ourPlayerIndex).filter(playerIndex => better_givers.includes(playerIndex));
+					const save_for = find_clue_givers(game, clue, state.ourPlayerIndex);
 					if (save_for.length == 0)
 						return true;
 					const value = find_clue_value(clue.result);
